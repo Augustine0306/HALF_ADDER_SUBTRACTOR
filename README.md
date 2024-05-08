@@ -1,4 +1,4 @@
-# HALF_ADDER_SUBTRACTOR
+# EX 03 HALF_ADDER_SUBTRACTOR
 
 Implementation-of-Half-Adder-and-Half Subtractor-circuit
 
@@ -49,21 +49,30 @@ Figure -02 HALF Subtractor
 
 
 **Program:**
-```
-module fulladder(x1,x2,f);
-input x1,x2;
-output f;
-assign f = (x1 & ~x2) | (x2 &~x1 );
 
+/* Program to design a half adder and full adder circuit and verify its truth table in quartus using Verilog programming.
+Developed by: AUGUSTINE J
+RegisterNumber: 212222240015
+*/
+```
+module HalfAddSub(a,b,sum,carry,D,Bo);
+input a,b;
+output sum,carry,D,Bo;
+wire abar;
+xor G1(sum,a,b);
+and G2(carry,a,b);
+not (abar,a);
+xor G3(D,a,b);
+and G4(Bo,abar,b);
 endmodule
 ```
-Developed by: AUGUSTINE J 
-RegisterNumber:212222240015
-### RTL Schematic:
-![image](https://github.com/Augustine0306/HALF_ADDER_SUBTRACTOR/assets/119404460/71e75b2b-f908-44a4-bd9e-1aaa5f02dbba)
-### Output/TIMING Waveform:
-![image](https://github.com/Augustine0306/HALF_ADDER_SUBTRACTOR/assets/119404460/a6a4d1ab-d009-42da-aee0-ffc698d23b00)
 
+
+**RTL Schematic**
+![image](https://github.com/Augustine0306/HALF_ADDER_SUBTRACTOR/assets/119404460/eb65164c-3471-473b-89f9-82907ef36f2c)
+
+**Output/TIMING Waveform**
+![image](https://github.com/Augustine0306/HALF_ADDER_SUBTRACTOR/assets/119404460/85b4dbd8-74ee-4486-9cc1-b13ac7882a9f)
 
 **Result:**
-The output is verified successfully
+The above program is executed successfully.
