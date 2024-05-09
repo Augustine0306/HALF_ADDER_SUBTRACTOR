@@ -1,6 +1,4 @@
-# HALF_ADDER_SUBTRACTOR
-
-Implementation-of-Half-Adder-and-Half Subtractor-circuit
+# Implementation-of-Half-Adder-and-Half Subtractor-circuit
 
 **AIM:**
 
@@ -34,7 +32,6 @@ Borrow = A’B
 Figure -02 HALF Subtractor
 
 **Truthtable**
-![DE E-3 truthtable](https://github.com/04Varsha/HALF_ADDER_SUBTRACTOR/assets/149035374/c06bba9c-9c1e-4e92-a1e3-869583ce44c7)
 
 **Procedure**
 
@@ -50,33 +47,46 @@ Figure -02 HALF Subtractor
 
 
 **Program:**
-/* Program to design a half adder and full adder circuit and verify its truth table in quartus using Verilog programming.
-~~~
-module EX03(a,b,sum,carry,D,Bo); 
-input a,b; 
-output sum,carry,D,Bo;
-xor g1(sum,a,b);
-and g2(carry,a,b); 
-wire abar; 
-not g3(abar,a); 
-xor g4(D,a,b); 
-and g5(Bo,abar,b); 
-endmodule
 
+*Half_adder*
+```
+module halfadd_top(a,b,sum,carry);
+input a,b;
+output sum,carry; 
+ assign sum = a^b;
+ assign carry = a & b;
+endmodule
+```
+*Half_subtractor*
+```
+module halfsub_top(a,b,D,Bo);
+input a,b;
+output D,Bo; // Outputs sum and carry for half adder:Outputs difference D,Borrow Bo for half subtractor
+assign D = a ^ b;
+  assign Bo = ~a & b;
+endmodule
+```
+```
 Developed by: AUGUSTINE J
+
 RegisterNumber: 212222240015
-~~~
 
 */
-
-
+```
 **RTL Schematic**
-![image](https://github.com/Augustine0306/HALF_ADDER_SUBTRACTOR/assets/119404460/7061d47e-7d71-4f01-bd11-21c8188e9467)
 
+![image](https://github.com/Augustine0306/HALF_ADDER_SUBTRACTOR/assets/119404460/aff26d19-fa2e-4d88-bd5b-43ce196c7a3d)
 
 **Output/TIMING Waveform**
 
-![image](https://github.com/Augustine0306/HALF_ADDER_SUBTRACTOR/assets/119404460/0e62e962-dee9-4f88-a48c-031a1a093276)
+HALF ADDER:
+
+![image](https://github.com/Augustine0306/HALF_ADDER_SUBTRACTOR/assets/119404460/a8249007-3ba3-4454-ba17-2cba04a8b73e)
+
+HALF SUBTRACTOR:
+
+![image](https://github.com/Augustine0306/HALF_ADDER_SUBTRACTOR/assets/119404460/bf5e8ec7-159d-4e65-9d0e-2fcbe501e5fe)
 
 **Result:**
-Implementation-of-Half-Adder-and-Half Subtractor-circuit is excuted sucessfully.
+
+Thus a  a half adder and half subtractor circuit is designed and its truth table in Quartus using Verilog programming is verified.
